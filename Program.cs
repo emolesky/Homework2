@@ -1,31 +1,31 @@
 ﻿//Emilynn Molesky
-// 2/5/2025
+//2/5/2025
 
-namespace TheProtype
+namespace Replicator
 {
     public class Program
     {
         static void Main(string[] args)
         {
-            int pilotNumber;
-            do
-            {
-                Console.Write("Enter a number between 0 and 100:");
-                pilotNumber = Convert.ToInt32(Console.ReadLine());
-            }
-            while (pilotNumber < 0 || pilotNumber > 100);
-            Console.Clear();
+            int[] originalArray = new int[5];
 
-            while(true)
+            Console.WriteLine("Enter 5 Numbers:");
+            for (int i = 0; i < originalArray.Length; i++)
             {
-                Console.WriteLine("Guess a number between 0 and 100:");
-                int hunterGuess = Convert.ToInt32(Console.ReadLine());
-
-                if (hunterGuess > pilotNumber) Console.WriteLine($"{hunterGuess}is too high.");
-                else if (hunterGuess < pilotNumber) Console.WriteLine($"{hunterGuess} is too low");
-                else break;
+                Console.WriteLine($"Number {i + 1}:");
+                originalArray[i] = int.Parse(Console.ReadLine());
             }
-            Console.WriteLine("Youve guessed the number!!");
+
+            int[] copyArray = new int[5];
+
+            for (int i = 0; i < originalArray.Length; i++)
+            {
+                copyArray[i] = originalArray[i];
+            }
+
+            Console.WriteLine("Original Array:" + string.Join(", ", originalArray));
+            Console.WriteLine("Copy Array:" + string.Join(", ", copyArray));
+
         }
     }
 }
