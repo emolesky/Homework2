@@ -1,40 +1,31 @@
 ﻿//Emilynn Molesky
-//1/5/2025
+// 2/5/2025
 
-
-
-namespace MagicCannon
+namespace TheProtype
 {
     public class Program
     {
         static void Main(string[] args)
         {
-            for (int i = 1; i <= 100; i++)
+            int pilotNumber;
+            do
             {
-                bool fire = (i % 3 == 0);
-                bool electric = (i % 5 == 0);
-
-                if (fire && electric)
-                {
-                    Console.ForegroundColor = ConsoleColor.Blue;
-                    Console.WriteLine($"{i}: Fire and Electric");
-                }
-                if (fire)
-                {
-                    Console.ForegroundColor = ConsoleColor.Red;
-                    Console.WriteLine($"{i}: Fire");
-                }
-                if (electric)
-                {
-                    Console.ForegroundColor = ConsoleColor.Yellow;
-                    Console.WriteLine($"{i}:Electric");
-                }
-                else
-                {
-                    Console.ResetColor();
-                    Console.WriteLine($"{i}: Normal");
-                }
+                Console.Write("Enter a number between 0 and 100:");
+                pilotNumber = Convert.ToInt32(Console.ReadLine());
             }
+            while (pilotNumber < 0 || pilotNumber > 100);
+            Console.Clear();
+
+            while(true)
+            {
+                Console.WriteLine("Guess a number between 0 and 100:");
+                int hunterGuess = Convert.ToInt32(Console.ReadLine());
+
+                if (hunterGuess > pilotNumber) Console.WriteLine($"{hunterGuess}is too high.");
+                else if (hunterGuess < pilotNumber) Console.WriteLine($"{hunterGuess} is too low");
+                else break;
+            }
+            Console.WriteLine("Youve guessed the number!!");
         }
     }
 }
